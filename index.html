@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <label for="todo" name="todo" id="tolist" >ToDO</label>
+        <input type="text" id="todo">
+        <button onclick="addTasks()" id="add">Add</button>
+    </div>
+    <ul id="todoList"></ul>
+    <script>
+        let listItems = document.getElementById('todoList')
+        function addTasks(){
+            const input = document.getElementById('todo')
+            const valueIn = input.value.trim()
+            if(valueIn === ''){
+                alert('Enter a task')
+                return;
+            }
+            const list = document.createElement('li')
+            list.textContent = valueIn
+            let checkbox = document.createElement('input')
+            checkbox.type = 'checkbox'
+            checkbox.setAttribute('style','float : left')
+            checkbox.addEventListener('change', ()=>{
+                if(checkbox.checked){
+                list.style.textDecoration = 'line-through'
+            }
+            else{
+                list.style.textDecoration = 'none'
+            }
+
+            })
+            let button = document.createElement('button')
+            button.textContent = 'Remove'
+            button.setAttribute('style', 'border-radius: 10px; border-style: double')
+            button.addEventListener('click', ()=>{
+                list.remove()
+            })
+            list.appendChild(button)
+            list.appendChild(checkbox)
+            listItems.appendChild(list)
+            input.value =' '
+        }
+    </script>
+</body>
+</html>
