@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="countdown.css">
+</head>
+<body>
+    <div id="counting">
+        <h1>USECOUNTDOWN</h1>
+        <p id="timeDown"></p>
+        <div id="buttons">
+            <button type="button" id="btn1">+5s</button>
+            <button type="button" id="btn2">+10s</button>
+            <button type="button" id="btn3">+15s</button>
+         </div>
+        
+    </div>
+    <script>
+        let timeDown = document.getElementById('timeDown')
+        let buttons = document.getElementById('buttons')
+        
+        let count = 10
+        const timer = setInterval(function() {
+            if(count>=0){
+                timeDown.textContent = count
+                count--
+            }
+            else{
+                clearInterval(timer)
+                buttons.style.display = 'none'
+            }
+        },1000)
+        
+        buttons.addEventListener('click',(event) =>{
+            let target = event.target;
+            switch(target.id){
+                case 'btn1' :
+                    count +=5     
+                    break;  
+                case 'btn2' :
+                    count+=10
+                    break;
+                case 'btn3' :
+                    count +=15   
+                    break;
+                }
+        })
+
+    </script>
+</body>
+</html>
