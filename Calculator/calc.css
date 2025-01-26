@@ -1,0 +1,30 @@
+body{
+    height: 100vh;
+}
+#calulator{
+    display: grid;
+    justify-content: center;
+}
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 7px;
+    background-color: black;
+}
+button{
+    border:none;
+    border-radius: 80px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.operation{
+    background-color: orange;
+}
+#display{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border:none;
+}
