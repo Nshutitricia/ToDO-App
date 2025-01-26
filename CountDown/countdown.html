@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDown</title>
+    <link rel="stylesheet" href="countDown.css">
+</head>
+<body>
+    <h1>USECOUNTDOWN</h1>
+    <span id="count"></span>
+    <div id="buttons">
+        <button type="button" id="but1">+5s</button>
+        <button type="button" id="but2">+10s</button>
+        <button type="button" id="but3">+15s</button>
+    </div>
+    <script>
+        let count = document.querySelector('#count')
+        let buttons = document.querySelector('#buttons')
+        let counter = 10;
+        let interval = setInterval(()=>{
+            if(counter>=0){
+                count.textContent= counter
+                counter--
+            }
+            else{
+                clearInterval(Interval);
+                buttons.style.display ="none";
+            }
+        },1000)
+        buttons.addEventListener('click', (e)=>{
+            let target  = e.target;
+            switch(target.id){
+                case 'but1':
+                    counter+=5
+                    break;
+                case 'but2':
+                    counter+=15;
+                    break;
+                case 'but3':
+                    counter+=15;
+                    break;
+            }
+            
+        })
+    </script>
+</body>
+</html>
